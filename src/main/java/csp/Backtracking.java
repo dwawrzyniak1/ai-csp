@@ -2,6 +2,7 @@ package csp;
 
 import csp.heuristics.ValueSelectionHeuristic;
 import csp.heuristics.VariableSelectionHeuristic;
+import csp.Variable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,41 +24,40 @@ public class Backtracking {
     public List<Variable[][]> search(CSP csp){
         results = new ArrayList<>();
 
-        recursiveSearch(csp.getState(), csp.getNumberOfAssignedValues());
+        recursiveSearch(csp.getState());
 
         return results;
     }
 
-    private int recursiveSearch(Variable[][] state, int boardCompletnessCounter) {
-        if(boardCompletnessCounter == state.length*state.length){
+    private int recursiveSearch(Variable[][] state) {
+
+        if(isComplete(state)){
             results.add(state);
             return COMPLETED;
         }
-        System.out.println("Liczba zapełnionych pól: " + boardCompletnessCounter);
+
         Variable variable = variableSelection.selectUnassigned(state);
-        System.out.println("Wybrana zmienna: " + variable);
+
         for(int value : valueSelection.domainValues(variable)){
-            System.out.println("Wartości zmiennej: " + value);
             if(variable.isValueConsistent(value, state)){
                 Variable copied = new Variable(variable);
-                copied.setValue(value);
+                copied.setValueAndUpdateDomain(value, copied.getValue());
                 Variable[][] stateCopy = copyStateWithNewVariable(state, copied);
-                System.out.println("Skopiowany stan: " + stateToString(stateCopy) + "\n\n\n");
-                int result = recursiveSearch(stateCopy, boardCompletnessCounter++);
+                recursiveSearch(stateCopy);
             }
         }
         return FAILURE;
     }
 
-    private String stateToString(Variable[][] stateCopy) {
-        StringBuilder builder = new StringBuilder();
-        for(int i = 0; i < stateCopy.length; i++){
-            for(int j = 0; j < stateCopy.length; j++){
-                builder.append(stateCopy[i][j]).append("\t");
+    private boolean isComplete(Variable[][] state) {
+        for(Variable[] row : state){
+            for(Variable variable : row){
+                if (!variable.isAssigned() || !variable.isConsistent(state)){
+                    return false;
+                }
             }
-            builder.append("\n");
         }
-        return builder.toString();
+        return true;
     }
 
     private Variable[][] copyStateWithNewVariable(Variable[][] state, Variable copied) {

@@ -52,6 +52,14 @@ public class Variable {
         this.value = value;
     }
 
+    public void setValueAndUpdateDomain(int value, int prevValue){
+        if(prevValue != 0){
+            domain[prevValue - 1] = true;
+        }
+        this.value = value;
+        domain[value - 1] = false;
+    }
+
     public boolean[] getDomain() {
         return domain;
     }
@@ -83,15 +91,12 @@ public class Variable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Variable variable = (Variable) o;
-        return value == variable.value &&
-                Arrays.equals(domain, variable.domain);
+        return value == variable.value;
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(value);
-        result = 31 * result + Arrays.hashCode(domain);
-        return result;
+        return Objects.hash(value);
     }
 
     public boolean isValueConsistent(int value, Variable[][] state) {

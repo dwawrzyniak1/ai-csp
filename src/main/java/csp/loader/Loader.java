@@ -11,7 +11,7 @@ public class Loader {
 
 
     public CSP loadFutoshiki(String filename){
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/" + filename))){
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/" + filename)))){
 
             FutoshikiLoader futoshikiLoader = new FutoshikiLoader();
             int boardSize = Integer.parseInt(reader.readLine());

@@ -5,9 +5,8 @@ import csp.Variable;
 public class FirstInDomainValueSelection implements ValueSelectionHeuristic {
     @Override
     public int[] domainValues(Variable variable) {
-        int domainSize = 0;
         boolean[] domain = variable.getDomain();
-        domainSize = getDomainSize(domainSize, domain);
+        int domainSize = getDomainSize(domain);
         return getDomainValues(domainSize, domain);
     }
 
@@ -22,7 +21,8 @@ public class FirstInDomainValueSelection implements ValueSelectionHeuristic {
         return values;
     }
 
-    private int getDomainSize(int domainSize, boolean[] domain) {
+    private int getDomainSize(boolean[] domain) {
+        int domainSize = 0;
         for(boolean member : domain){
             if(member){
                 domainSize++;

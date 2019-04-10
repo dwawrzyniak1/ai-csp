@@ -1,7 +1,6 @@
 package csp.loader;
 
 import csp.Variable;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,11 +16,11 @@ public class FutoshikiLoaderTest {
     private Variable[][] state;
 
     @Before
-    private void setState(){
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/test_futo_4_0.txt")))) {
+    public void setState(){
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/test_futo_4_1.txt")))) {
             // GIVEN
             int boardSize = Integer.parseInt(reader.readLine());
-            Variable[][] state = new Variable[boardSize][boardSize];
+            state = new Variable[boardSize][boardSize];
             futoshikiLoader.readInitialState(reader, state);
             futoshikiLoader.readConstraints(reader, state);
         } catch (IOException e) {
@@ -91,6 +90,16 @@ public class FutoshikiLoaderTest {
         assertFalse(state[0][1].isValueConsistent(2, state));
     }
 
+    @Test
+    public void shouldReturnFalseForNotDistinctValue(){
+
+        state[0][0].setValue(1);
+        state[0][1].setValue(1);
+        state[1][0].setValue(1);
+
+        assertFalse(futoshikiLoader.allDiffrent(state, 1, 0));
+        assertFalse(futoshikiLoader.allDiffrent(state, 0, 1));
+    }
 
 
 }

@@ -27,18 +27,22 @@ public class FutoshikiLoader {
         }
     }
 
-    private boolean allDiffrent(Variable[][] state, int x, int y) {
+    public boolean allDiffrent(Variable[][] state, int x, int y) {
         boolean[] wasPresent = new boolean[state.length];
         for(int i = 0; i < state.length; i++){
             int value = state[i][y].getValue();
             if(value != 0){
                 if(!wasPresent[value - 1])
                     wasPresent[value - 1] = true;
-                else
+                else{
                     return false;
+                }
+
             }
         }
-        return Arrays.stream(state[x]).filter(var -> var.getValue() != 0).distinct().count() == Arrays.stream(state[x]).filter(var -> var.getValue() != 0).count();
+        long distinct = Arrays.stream(state[x]).filter(var -> var.getValue() != 0).distinct().count();
+        long assigned = Arrays.stream(state[x]).filter(var -> var.getValue() != 0).count();
+        return distinct == assigned;
     }
 
     public void readConstraints(BufferedReader reader, Variable[][] state) throws IOException {
