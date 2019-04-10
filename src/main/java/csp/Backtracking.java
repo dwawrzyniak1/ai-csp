@@ -2,7 +2,6 @@ package csp;
 
 import csp.heuristics.ValueSelectionHeuristic;
 import csp.heuristics.VariableSelectionHeuristic;
-import csp.Variable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +10,9 @@ public class Backtracking {
 
     private static final int COMPLETED = 0;
     private static final int FAILURE = 1;
+
+    public static int iterations = 0;
+
     private List<Variable[][]> results;
     private VariableSelectionHeuristic variableSelection;
     private ValueSelectionHeuristic valueSelection;
@@ -21,16 +23,18 @@ public class Backtracking {
         results = new ArrayList<>();
     }
 
-    public List<Variable[][]> search(CSP csp){
+    public List<Variable[][]> searchWithForwardChecking(CSP csp){
         results = new ArrayList<>();
-
-        recursiveSearch(csp.getState());
-
+        iterations = 0;
+        long startTime = System.nanoTime();
+        recursiveSearchWithForwardChecking(csp.getState());
+        long endTime = System.nanoTime();
+        System.out.println("Czas wykonania: " + (endTime - startTime)/1_000_000_000.0 + "sekundy");
+        System.out.println("Liczba Iteracji: " + iterations);
         return results;
     }
 
-    private int recursiveSearch(Variable[][] state) {
-
+    private int recursiveSearchWithForwardChecking(Variable[][] state) {
         if(isComplete(state)){
             results.add(state);
             return COMPLETED;
@@ -38,7 +42,47 @@ public class Backtracking {
 
         Variable variable = variableSelection.selectUnassigned(state);
 
-        for(int value : valueSelection.domainValues(variable)){
+        for(int value : valueSelection.domainValues(variable, state)){
+            iterations++;
+            Variable copied = new Variable(variable);
+            copied.setValueAndUpdateDomain(value, copied.getValue());
+            Variable[][] stateCopy = copyStateWithNewVariable(state, copied);
+            updateDomains(stateCopy, copied);
+            recursiveSearchWithForwardChecking(stateCopy);
+        }
+        return FAILURE;
+    }
+
+    private void updateDomains(Variable[][] state, Variable changed) {
+        for(int i = 0; i < state.length; i++){
+            state[changed.getRow()][i].updateDomain(state);
+        }
+        for(int i = 0; i < state.length; i++){
+            state[i][changed.getColumn()].updateDomain(state);
+        }
+    }
+
+    public List<Variable[][]> search(CSP csp){
+        results = new ArrayList<>();
+        iterations = 0;
+        long startTime = System.nanoTime();
+        recursiveSearch(csp.getState());
+        long endTime = System.nanoTime();
+        System.out.println("Czas wykonania: " + (endTime - startTime)/1_000_000_000.0 + "sekundy");
+        System.out.println("Liczba Iteracji: " + iterations);
+        return results;
+    }
+
+    private int recursiveSearch(Variable[][] state) {
+        if(isComplete(state)){
+            results.add(state);
+            return COMPLETED;
+        }
+
+        Variable variable = variableSelection.selectUnassigned(state);
+
+        for(int value : valueSelection.domainValues(variable, state)){
+            iterations++;
             if(variable.isValueConsistent(value, state)){
                 Variable copied = new Variable(variable);
                 copied.setValueAndUpdateDomain(value, copied.getValue());

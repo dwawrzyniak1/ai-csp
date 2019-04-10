@@ -1,0 +1,27 @@
+
+Y
+)src/main/java/csp/ConstraintStrategy.java,d\2\d2b27b7a2644c7e020f3d08dba559027b845ef49
+J
+src/main/java/csp/CSP.java,8\0\806975c20c4a55134cb7cb05b3efa56a95b98771
+l
+<src/main/java/csp/heuristics/VariableSelectionHeuristic.java,4\d\4dbdbc98c4de128c6c4f9caed365e8d21a6d7a60
+r
+Bsrc/main/java/csp/heuristics/FirstUnassignedVariableSelection.java,d\9\d9d9d68e80e9b156a8afbcc3ebd1afd3b2cf3775
+i
+9src/main/java/csp/heuristics/ValueSelectionHeuristic.java,4\7\472d55c5ed9bcfc4dabfb69997b2f8f301de339d
+q
+Asrc/test/java/csp/heuristics/FirstInDomainValueSelectionTest.java,8\4\84afaa11186aa3b91109424aefade226b7f22185
+m
+=src/main/java/csp/heuristics/FirstInDomainValueSelection.java,6\2\62f340c0796828bb9ef16482a76c66b701dd69b5
+T
+$src/main/java/csp/loader/Loader.java,0\8\08c5c5293a06918eef7cb73b1ec8931f40d01091
+a
+1src/test/java/csp/loader/FutoshikiLoaderTest.java,0\4\049a01a39aeaf4477f5edef61c1ee12b4243533a
+O
+src/main/java/csp/Variable.java,2\3\230ef1542f53ee3700d1900c2be125c7e1907700
+]
+-src/main/java/csp/loader/FutoshikiLoader.java,9\3\9369e3388a2fa82a8bb7604a4e8544ad89aaea55
+G
+src/main/java/Main.java,e\4\e44a8606ce010ad9b89aafdfcee2ab49afbf6d10
+S
+#src/main/java/csp/Backtracking.java,f\a\fa47776f25349320cf7976f8e23fb207e02f9434

@@ -1,7 +1,7 @@
 import csp.Backtracking;
 import csp.CSP;
-import csp.heuristics.FirstInDomainValueSelection;
-import csp.heuristics.FirstUnassignedVariableSelection;
+import csp.heuristics.LCVValueSelection;
+import csp.heuristics.MRVVariableSelection;
 import csp.loader.Loader;
 
 public class Main {
@@ -10,11 +10,10 @@ public class Main {
 
         Loader loader = new Loader();
 
-        CSP csp = loader.loadFutoshiki("test_futo_4_0.txt");
+        CSP csp = loader.loadFutoshiki("test_futo_9_0.txt");
 
-        Backtracking backtracking = new Backtracking(new FirstUnassignedVariableSelection(), new FirstInDomainValueSelection());
-        backtracking.search(csp);
+        Backtracking backtracking = new Backtracking(new MRVVariableSelection(), new LCVValueSelection());
+        backtracking.searchWithForwardChecking(csp);
 
-        System.out.println("powodzonka");
     }
 }

@@ -2,21 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33d37d51-c783-4c87-8017-59570f2f65cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/csp/heuristics/FirstInDomainValueSelectionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/csp/heuristics/LCVValueSelection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/csp/heuristics/MRVVariableSelection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/csp/Backtracking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/csp/Backtracking.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/csp/Variable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/csp/Variable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/csp/heuristics/FirstInDomainValueSelection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/csp/heuristics/FirstInDomainValueSelection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/csp/loader/FutoshikiLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/csp/loader/FutoshikiLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/csp/loader/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/csp/loader/Loader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/test_futo_4_0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/test_futo_4_0.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/csp/loader/FutoshikiLoaderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/csp/loader/FutoshikiLoaderTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/csp/Backtracking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csp/Backtracking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/csp/ConstraintStrategy.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/csp/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csp/Variable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/csp/heuristics/FirstInDomainValueSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csp/heuristics/FirstInDomainValueSelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/csp/heuristics/ValueSelectionHeuristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csp/heuristics/ValueSelectionHeuristic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/csp/loader/FutoshikiLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csp/loader/FutoshikiLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/csp/loader/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/csp/loader/Loader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/csp/loader/FutoshikiLoaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/csp/loader/FutoshikiLoaderTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -36,12 +35,12 @@
     <favorites_list name="csp" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/csp/loader/FutoshikiLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="289">
+              <caret line="110" column="47" lean-forward="true" selection-start-line="110" selection-start-column="47" selection-end-line="110" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,65 +49,71 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/csp/loader/FutoshikiLoaderTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/csp/Backtracking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="698">
-              <caret line="100" column="56" selection-start-line="100" selection-start-column="56" selection-end-line="100" selection-end-column="56" />
+            <state relative-caret-position="233">
+              <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#shouldReadProperVariableValuesFromState#0;class#FutoshikiLoaderTest#0" />
-                <element signature="method#shouldReturnFalseForNotFulfiledAllDiffrentConstraint#0;class#FutoshikiLoaderTest#0" />
-                <element signature="method#shouldReturnTrueForFulfiledAllConstraints#0;class#FutoshikiLoaderTest#0" />
-                <element signature="method#shouldReturnFalseForNotFulfiledBinaryConstraint#0;class#FutoshikiLoaderTest#0" />
+                <element signature="method#isComplete#0;class#Backtracking#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/csp/Backtracking.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="31" column="53" lean-forward="true" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/test_sky_5_0.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/ValueSelectionHeuristic.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+              <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/VariableSelectionHeuristic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/FirstUnassignedVariableSelection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/MRVVariableSelection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+              <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/LCVValueSelection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="18" column="95" selection-start-line="18" selection-start-column="95" selection-end-line="18" selection-end-column="95" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/FirstInDomainValueSelection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
+              <folding>
+                <element signature="e#188#189#0" expanded="true" />
+                <element signature="e#237#238#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,12 +124,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/csp/Variable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+            <state relative-caret-position="199">
+              <caret line="155" column="13" selection-start-line="155" selection-start-column="13" selection-end-line="155" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1386#1387#0" expanded="true" />
+                <element signature="e#1433#1434#0" expanded="true" />
+                <element signature="e#1100#1101#0" expanded="true" />
+                <element signature="e#1133#1134#0" expanded="true" />
+                <element signature="e#1700#1701#0" expanded="true" />
+                <element signature="e#1732#1733#0" expanded="true" />
                 <element signature="e#1229#1230#0" expanded="true" />
                 <element signature="e#1263#1264#0" expanded="true" />
+                <element signature="e#2236#2237#0" expanded="true" />
+                <element signature="e#2272#2273#0" expanded="true" />
                 <element signature="e#2402#2403#0" expanded="true" />
                 <element signature="e#2444#2445#0" expanded="true" />
               </folding>
@@ -149,24 +162,26 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/loader/Loader.java" />
         <option value="$PROJECT_DIR$/src/main/java/heuristics/ValueSelectionHeuristic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/csp/heuristics/ValueSelectionHeuristic.java" />
         <option value="$PROJECT_DIR$/src/main/java/csp/heuristics/VariableSelectionHeuristic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/csp/heuristics/FirstUnassignedVariableSelection.java" />
         <option value="$PROJECT_DIR$/src/main/java/csp/loader/Loader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/csp/heuristics/FirstInDomainValueSelection.java" />
         <option value="$PROJECT_DIR$/src/test/java/csp/heuristics/FirstInDomainValueSelectionTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/csp/FutoshikiBinaryConstraint.java" />
         <option value="$PROJECT_DIR$/src/test/java/csp/loader/FutoshikiLoaderTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/csp/Variable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/csp/loader/FutoshikiLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/resources/test_futo_4_0.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/csp/heuristics/FirstUnassignedVariableSelection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/csp/loader/FutoshikiLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/csp/heuristics/ValueSelectionHeuristic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/csp/heuristics/FirstInDomainValueSelection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/csp/heuristics/LCVValueSelection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/csp/Variable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/csp/heuristics/MRVVariableSelection.java" />
         <option value="$PROJECT_DIR$/src/main/java/csp/Backtracking.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
+    <option name="x" value="-8" />
     <option name="y" value="22" />
     <option name="width" value="1936" />
     <option name="height" value="1066" />
@@ -177,6 +192,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -199,20 +216,14 @@
               <item name="csp" type="b2602c69:ProjectViewProjectNode" />
               <item name="csp-futoshiki-skyscrapper" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="csp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="csp-futoshiki-skyscrapper" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="csp" type="b2602c69:ProjectViewProjectNode" />
               <item name="csp-futoshiki-skyscrapper" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="csp" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -220,7 +231,16 @@
               <item name="csp" type="b2602c69:ProjectViewProjectNode" />
               <item name="csp-futoshiki-skyscrapper" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="csp" type="462c0819:PsiDirectoryNode" />
+              <item name="heuristics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="csp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="csp-futoshiki-skyscrapper" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="csp" type="462c0819:PsiDirectoryNode" />
               <item name="loader" type="462c0819:PsiDirectoryNode" />
@@ -229,14 +249,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554900676854" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554931682757" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -354,7 +372,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1554892198780</updated>
-      <workItem from="1554892202440" duration="9137000" />
+      <workItem from="1554892202440" duration="9251000" />
+      <workItem from="1554904926285" duration="15698000" />
     </task>
     <servers />
   </component>
@@ -391,59 +410,47 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9137000" />
+    <option name="totallyTimeSpent" value="24949000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="22" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" sideWeight="0.500956" side_tool="true" weight="0.25" />
-      <window_info id="Capture Tool" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4977064" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4977064" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" sideWeight="0.5022936" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Build" weight="0.3290461" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3290461" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.3290461" />
-      <window_info anchor="bottom" id="SonarLint" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.500956" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290461" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5766345" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5326902" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41371918" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5273312" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Gradle" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.3290461" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3290461" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3290461" />
+      <window_info anchor="bottom" id="SonarLint" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>17</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/csp/ConstraintStrategy.java">
@@ -470,27 +477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/FirstUnassignedVariableSelection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/VariableSelectionHeuristic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/ValueSelectionHeuristic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/csp/heuristics/FirstInDomainValueSelectionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -501,20 +487,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/FirstInDomainValueSelection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/csp/FutoshikiBinaryConstraint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/csp/FutoshikiBinaryConstraint.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/csp/loader/Loader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -532,56 +505,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/csp/loader/FutoshikiLoaderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="100" column="56" selection-start-line="100" selection-start-column="56" selection-end-line="100" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#shouldReadProperVariableValuesFromState#0;class#FutoshikiLoaderTest#0" />
-            <element signature="method#shouldReturnFalseForNotFulfiledAllDiffrentConstraint#0;class#FutoshikiLoaderTest#0" />
-            <element signature="method#shouldReturnTrueForFulfiledAllConstraints#0;class#FutoshikiLoaderTest#0" />
-            <element signature="method#shouldReturnFalseForNotFulfiledBinaryConstraint#0;class#FutoshikiLoaderTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/test_futo_4_1.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/csp/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#2402#2403#0" expanded="true" />
-            <element signature="e#2444#2445#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/csp/loader/FutoshikiLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/test_futo_4_0.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -593,10 +518,129 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/test_futo_9_0.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/csp/loader/FutoshikiLoaderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="100" column="56" selection-start-line="100" selection-start-column="56" selection-end-line="100" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#shouldReadProperVariableValuesFromState#0;class#FutoshikiLoaderTest#0" />
+            <element signature="method#shouldReturnFalseForNotFulfiledAllDiffrentConstraint#0;class#FutoshikiLoaderTest#0" />
+            <element signature="method#shouldReturnTrueForFulfiledAllConstraints#0;class#FutoshikiLoaderTest#0" />
+            <element signature="method#shouldReturnFalseForNotFulfiledBinaryConstraint#0;class#FutoshikiLoaderTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/VariableSelectionHeuristic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/FirstUnassignedVariableSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/test_sky_4_0.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/test_sky_5_0.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/ValueSelectionHeuristic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/FirstInDomainValueSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
+          <folding>
+            <element signature="e#188#189#0" expanded="true" />
+            <element signature="e#237#238#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/function/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/LCVValueSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="18" column="95" selection-start-line="18" selection-start-column="95" selection-end-line="18" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/csp/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="155" column="13" selection-start-line="155" selection-start-column="13" selection-end-line="155" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1386#1387#0" expanded="true" />
+            <element signature="e#1433#1434#0" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1133#1134#0" expanded="true" />
+            <element signature="e#1700#1701#0" expanded="true" />
+            <element signature="e#1732#1733#0" expanded="true" />
+            <element signature="e#1229#1230#0" expanded="true" />
+            <element signature="e#1263#1264#0" expanded="true" />
+            <element signature="e#2236#2237#0" expanded="true" />
+            <element signature="e#2272#2273#0" expanded="true" />
+            <element signature="e#2402#2403#0" expanded="true" />
+            <element signature="e#2444#2445#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/csp/heuristics/MRVVariableSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/csp/loader/FutoshikiLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="110" column="47" lean-forward="true" selection-start-line="110" selection-start-column="47" selection-end-line="110" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/csp/Backtracking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="31" column="53" lean-forward="true" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
+        <state relative-caret-position="233">
+          <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#isComplete#0;class#Backtracking#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

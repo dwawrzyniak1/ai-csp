@@ -37,7 +37,6 @@ public class FutoshikiLoader {
                 else{
                     return false;
                 }
-
             }
         }
         long distinct = Arrays.stream(state[x]).filter(var -> var.getValue() != 0).distinct().count();
