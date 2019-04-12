@@ -4,16 +4,20 @@ import csp.Variable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.function.Predicate;
 
-public class FutoshikiLoader {
+public class FutoshikiLoader extends BoardLoader {
 
     private static final int ASCII_TO_INT = 65;
-    private static String separator = ";";
 
     public void readInitialState(BufferedReader reader, Variable[][] state) throws IOException {
         reader.readLine(); // OMIT TITLE STRING
+        readVariables(reader, state);
+        readConstraints(reader, state);
+        setDomains(state);
+    }
+
+    private void readVariables(BufferedReader reader, Variable[][] state) throws IOException {
         for(int i = 0; i < state.length; i++){
             String values = reader.readLine();
             String[] splitedValues = values.split(separator);
@@ -27,24 +31,7 @@ public class FutoshikiLoader {
         }
     }
 
-    public boolean allDiffrent(Variable[][] state, int x, int y) {
-        boolean[] wasPresent = new boolean[state.length];
-        for(int i = 0; i < state.length; i++){
-            int value = state[i][y].getValue();
-            if(value != 0){
-                if(!wasPresent[value - 1])
-                    wasPresent[value - 1] = true;
-                else{
-                    return false;
-                }
-            }
-        }
-        long distinct = Arrays.stream(state[x]).filter(var -> var.getValue() != 0).distinct().count();
-        long assigned = Arrays.stream(state[x]).filter(var -> var.getValue() != 0).count();
-        return distinct == assigned;
-    }
-
-    public void readConstraints(BufferedReader reader, Variable[][] state) throws IOException {
+    private void readConstraints(BufferedReader reader, Variable[][] state) throws IOException {
         reader.readLine(); // OMIT TITLE STRING
         String relations;
         while ((relations = reader.readLine()) != null){
@@ -75,7 +62,7 @@ public class FutoshikiLoader {
         return new int[]{firstX, firstY, secondX, secondY};
     }
 
-    public void setDomains(Variable[][] state) {
+    private void setDomains(Variable[][] state) {
         for(int i = 0; i < state.length; i++){
             for(int j = 0; j < state[i].length; j++){
 

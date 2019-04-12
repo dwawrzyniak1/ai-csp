@@ -1,2 +1,15 @@
 
-squid:UselessImportCheck"TRemove this unnecessary import: same package classes are always implicitly imported.(§ìä¦8†‘È¹ -
+[
+squid:S106 "9Replace this use of System.out or System.err by a logger.(ÓäÁ®şÿÿÿÿ8«†öÈ -
+"squid:ClassVariableVisibilityCheck"VMake iterations a static final constant or non-public and provide accessors if needed.(›ú²»øÿÿÿÿ8‡±éÈ -
+Tsquid:S2696."6Make the enclosing method "static" or remove this set.(—îÿ8³ÆêÈ -
+[
+squid:S106G"9Replace this use of System.out or System.err by a logger.(ÓäÁ®şÿÿÿÿ8£ØîÈ -
+Tsquid:S2696U"6Make the enclosing method "static" or remove this set.(—îÿ8Â‰Á -
+V
+squid:S106H"9Replace this use of System.out or System.err by a logger.(é¼ØÛ8ì«øÈ -
+V
+squid:S106!"9Replace this use of System.out or System.err by a logger.(é¼ØÛ8ÂŠ÷È -
+Ysquid:S2696C"6Make the enclosing method "static" or remove this set.(‰¨ùÿÿÿÿ8æ¹ñÀ -
+Ysquid:S2696"6Make the enclosing method "static" or remove this set.(‰¨ùÿÿÿÿ8ı¶îÀ -
+Ssquid:S1444"0Make this "public static iterations" field final(›ú²»øÿÿÿÿ8‡±éÈ -

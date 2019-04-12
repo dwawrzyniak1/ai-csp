@@ -1,3 +1,7 @@
 
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(•±Öğøÿÿÿÿ
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(ü¸œ‘8¥û¬ó -
+psquid:UselessImportCheck"@Remove this unused import 'csp.heuristics.MRVVariableSelection'.(Ë›Óÿÿÿÿÿ8Åéî -
+msquid:UselessImportCheck"=Remove this unused import 'csp.heuristics.LCVValueSelection'.(¼Ü·ˆşÿÿÿÿ8Ü¿éî -
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÿ¤ç‚8Ã­ó -
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¨€€š8Ã­ó -

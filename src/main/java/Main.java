@@ -10,10 +10,10 @@ public class Main {
 
         Loader loader = new Loader();
 
-        CSP csp = loader.loadFutoshiki("test_futo_9_0.txt");
+        CSP csp = loader.load("test_sky_4_0.txt");
 
         Backtracking backtracking = new Backtracking(new MRVVariableSelection(), new LCVValueSelection());
-        backtracking.searchWithForwardChecking(csp);
+        System.out.println(backtracking.searchWithForwardChecking(csp));
 
     }
 }

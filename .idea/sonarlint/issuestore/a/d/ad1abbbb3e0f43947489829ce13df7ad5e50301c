@@ -1,0 +1,8 @@
+
+Wsquid:S1611V"9Remove the parentheses around the "stateMatrix" parameter(Ğ–ÕÖ8Ö‹îò -
+Ssquid:S1068"0Remove this unused "ASCII_TO_INT" private field.(õï÷ªøÿÿÿÿ8€ÙÌç -
+Wsquid:S1611c"9Remove the parentheses around the "stateMatrix" parameter(ª  ‚8œ¾‘ó -
+Wsquid:S1611p"9Remove the parentheses around the "stateMatrix" parameter(›´µ8œ¾‘ó -
+psquid:S3776@"RRefactor this method to reduce its Cognitive Complexity from 37 to the 15 allowed.(ÄÒŠö8Š‹ó -
+Vsquid:S1611*"3Remove the parentheses around the "board" parameter(ÔÃ±Îÿÿÿÿÿ8ÚÔ¼ï -
+Wsquid:S1611I"9Remove the parentheses around the "stateMatrix" parameter(«µ÷ß8Š‹ó -

@@ -1,6 +1,4 @@
 
-Y
-)src/main/java/csp/ConstraintStrategy.java,d\2\d2b27b7a2644c7e020f3d08dba559027b845ef49
 J
 src/main/java/csp/CSP.java,8\0\806975c20c4a55134cb7cb05b3efa56a95b98771
 l
@@ -25,3 +23,11 @@ G
 src/main/java/Main.java,e\4\e44a8606ce010ad9b89aafdfcee2ab49afbf6d10
 S
 #src/main/java/csp/Backtracking.java,f\a\fa47776f25349320cf7976f8e23fb207e02f9434
+c
+3src/main/java/csp/heuristics/LCVValueSelection.java,2\c\2c37961309c9b83ec2bd222edf30911302a3f78d
+f
+6src/main/java/csp/heuristics/MRVVariableSelection.java,7\5\75d36770781138500777a0a717f74b685d9e5836
+Y
+)src/main/java/csp/loader/BoardLoader.java,f\0\f0520b38e85a713cc967e23fe2aec2113a953993
+_
+/src/main/java/csp/loader/SkyscrapperLoader.java,a\d\ad1abbbb3e0f43947489829ce13df7ad5e50301c

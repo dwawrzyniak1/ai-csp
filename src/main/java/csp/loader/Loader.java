@@ -7,19 +7,16 @@ import java.io.*;
 
 public class Loader {
 
-    private static String separator = ";";
+    private BoardLoader boardLoader;
 
 
-    public CSP loadFutoshiki(String filename){
+    public CSP load(String filename){
+        setBoardLoader(filename);
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/" + filename)))){
-
-            FutoshikiLoader futoshikiLoader = new FutoshikiLoader();
             int boardSize = Integer.parseInt(reader.readLine());
             Variable[][] state = new Variable[boardSize][boardSize];
 
-            futoshikiLoader.readInitialState(reader, state);
-            futoshikiLoader.readConstraints(reader, state);
-            futoshikiLoader.setDomains(state);
+            boardLoader.readInitialState(reader, state);
 
             return new CSP(state);
 
@@ -29,6 +26,19 @@ public class Loader {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private void setBoardLoader(String filename) {
+        String[] splitted = filename.split("_");
+        if("futo".equals(splitted[1])){
+            boardLoader = new FutoshikiLoader();
+        }
+        else if("sky".equals(splitted[1])){
+            boardLoader = new SkyscraperLoader();
+        }
+        else{
+            System.err.println("Zła nazwa pliku");
+        }
     }
 
 }
