@@ -18,4 +18,9 @@ public class MRVVariableSelection implements VariableSelectionHeuristic {
         }
         return choosen;
     }
+
+    @Override
+    public String getName() {
+        return "MRV";
+    }
 }

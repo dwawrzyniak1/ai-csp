@@ -34,7 +34,7 @@ public class FutoshikiLoader extends BoardLoader {
     private void readConstraints(BufferedReader reader, Variable[][] state) throws IOException {
         reader.readLine(); // OMIT TITLE STRING
         String relations;
-        while ((relations = reader.readLine()) != null){
+        while ((relations = reader.readLine()) != null && !"".equals(relations.trim())){
             int[] indexes = parseRelationsToIndexes(relations);
             Predicate<Variable[][]> constraint = stateMatrix ->
                     oneOfVariablesIsUnassigned(indexes, stateMatrix) || variablesFulfilConstraints(indexes, stateMatrix);

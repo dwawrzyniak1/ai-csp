@@ -1,0 +1,8 @@
+
+nsquid:UnusedPrivateMethod‚"ARemove this unused private "appendSolutionToHTMLTableRow" method.(ŸŸ¿Ş8’öŠ¡-
+Fsquid:S1148P"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8’öŠ¡-
+V
+squid:S106}"9Replace this use of System.out or System.err by a logger.(¸Ìì€8’öŠ¡-
+Wsquid:S1118":Add a private constructor to hide the implicit public one.(şõ¼8¡Ò™…¡-
+nsquid:S1192 "KDefine a constant instead of duplicating this literal "        \n" 4 times.(¿İ±Öùÿÿÿÿ8 ½¥…¡-
+asquid:UnusedPrivateMethod\"5Remove this unused private "appendResultHTML" method.(ƒİ‡8’öŠ¡-

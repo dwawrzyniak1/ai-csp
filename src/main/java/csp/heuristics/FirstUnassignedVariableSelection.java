@@ -14,4 +14,9 @@ public class FirstUnassignedVariableSelection implements VariableSelectionHeuris
         }
         return null;
     }
+
+    @Override
+    public String getName() {
+        return "";
+    }
 }

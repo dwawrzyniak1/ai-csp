@@ -16,9 +16,10 @@ public class Loader {
             int boardSize = Integer.parseInt(reader.readLine());
             Variable[][] state = new Variable[boardSize][boardSize];
 
+            System.out.println(filename);
             boardLoader.readInitialState(reader, state);
 
-            return new CSP(state);
+            return new CSP(state, filename);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -106,23 +106,21 @@ public class SkyscraperLoader extends BoardLoader{
     }
 
     private boolean notAllAssignedHorizontally(Variable[][] stateMatrix, int row){
-        int assignedCounter = 0;
         for(int i = 0; i < stateMatrix[row].length; i++){
-            if(stateMatrix[row][i].getValue() != 0){
-                assignedCounter++;
+            if(stateMatrix[row][i].getValue() == 0){
+                return true;
             }
         }
-        return assignedCounter < stateMatrix[row].length;
+        return false;
     }
 
     private boolean notAllAssignedVertically(Variable[][] stateMatrix, int column){
-        int assignedCounter = 0;
         for(int i = 0; i < stateMatrix.length; i++){
-            if(stateMatrix[i][column].getValue() != 0){
-                assignedCounter++;
+            if(stateMatrix[i][column].getValue() == 0){
+                return true;
             }
         }
-        return assignedCounter < stateMatrix.length;
+        return false;
     }
 
     private boolean skyscraperLowerConstraint(Variable[][] stateMatrix, int column, int constraintValue) {

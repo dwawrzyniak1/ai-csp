@@ -5,13 +5,19 @@ import java.util.Arrays;
 public class CSP {
 
     private Variable[][] state;
+    private String filename;
 
-    public CSP(Variable[][] state) {
+    public CSP(Variable[][] state, String filename) {
         this.state = state;
+        this.filename = filename;
     }
 
     public Variable[][] getState() {
         return state;
+    }
+
+    public String getFilename() {
+        return filename;
     }
 
     public int getNumberOfAssignedValues() {

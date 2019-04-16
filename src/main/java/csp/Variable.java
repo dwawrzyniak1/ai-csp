@@ -119,13 +119,18 @@ public class Variable {
     public boolean isValueConsistent(int value, Variable[][] state) {
         int initialValue = this.value;
         this.value = value;
-        boolean isConsistent = constraints.stream().allMatch(constraint -> constraint.test(state));
+        boolean isConsistent = isConsistent(state);
         this.value = initialValue;
         return isConsistent;
     }
 
     public boolean isConsistent(Variable[][] state){
-        return constraints.stream().allMatch(constraint -> constraint.test(state));
+        for(Predicate<Variable[][]> constraint : constraints){
+            if(!constraint.test(state)){
+                return false;
+            }
+        }
+        return true;//constraints.stream().allMatch(constraint -> constraint.test(state));
     }
 
     public int getRow() {

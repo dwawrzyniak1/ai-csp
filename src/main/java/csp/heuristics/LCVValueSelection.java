@@ -59,4 +59,8 @@ public class LCVValueSelection implements ValueSelectionHeuristic {
         stateCopy[copied.getRow()][copied.getColumn()] = copied;
         return stateCopy;
     }
+
+    public String getName(){
+        return "LCV";
+    }
 }

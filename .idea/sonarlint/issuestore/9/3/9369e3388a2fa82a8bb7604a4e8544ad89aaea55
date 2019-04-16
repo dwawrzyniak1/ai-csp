@@ -1,4 +1,5 @@
 
-jsquid:S26770"LUse or store the value returned from "readLine" instead of throwing it away.(”ùş8»àƒ¹ -
-csquid:S2677"LUse or store the value returned from "readLine" instead of throwing it away.(”ùş
-Osquid:S1611"3Remove the parentheses around the "board" parameter(ÔÃ±Îÿÿÿÿÿ
+jsquid:S2677$"LUse or store the value returned from "readLine" instead of throwing it away.(”ùş8»àƒ¹ -
+]squid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8ë»‡ˆ¡-
+csquid:S2677"LUse or store the value returned from "readLine" instead of throwing it away.(”ùş
+Vsquid:S1611"3Remove the parentheses around the "board" parameter(ÔÃ±Îÿÿÿÿÿ8»‹¿„¡-

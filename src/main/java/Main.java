@@ -1,19 +1,30 @@
-import csp.Backtracking;
-import csp.CSP;
+import com.google.gson.Gson;
+import csp.*;
+import csp.heuristics.FirstInDomainValueSelection;
+import csp.heuristics.FirstUnassignedVariableSelection;
 import csp.heuristics.LCVValueSelection;
 import csp.heuristics.MRVVariableSelection;
 import csp.loader.Loader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Loader loader = new Loader();
+        Backtracking withHeuristics = new Backtracking(new MRVVariableSelection(), new LCVValueSelection());
+        Backtracking withoutHeuristics = new Backtracking(new FirstUnassignedVariableSelection(), new FirstInDomainValueSelection());
 
-        CSP csp = loader.load("test_sky_4_0.txt");
+        String filename = "test_futo_9_0.txt";
+        CSP board = loader.load(filename);
+        List<Result> results = new ArrayList<>();
 
-        Backtracking backtracking = new Backtracking(new MRVVariableSelection(), new LCVValueSelection());
-        System.out.println(backtracking.searchWithForwardChecking(csp));
+        results.add(withHeuristics.searchWithForwardChecking(board));
+//        results.add(withHeuristics.search(board));
+//        results.add(withoutHeuristics.search(board));
+        results.add(withoutHeuristics.searchWithForwardChecking(board));
 
+        new HTMLPrinter().printHtml(results, filename);
     }
 }

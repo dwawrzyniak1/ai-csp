@@ -7,4 +7,9 @@ public class FirstInDomainValueSelection implements ValueSelectionHeuristic {
     public int[] domainValues(Variable variable, Variable[][] state) {
         return variable.getDomainValues();
     }
+
+    @Override
+    public String getName() {
+        return "";
+    }
 }

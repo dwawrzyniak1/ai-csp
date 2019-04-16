@@ -23,16 +23,22 @@ public class Backtracking {
         results = new ArrayList<>();
     }
 
-    public List<Variable[][]> searchWithForwardChecking(CSP csp){
+    public Result searchWithForwardChecking(CSP csp){
         results = new ArrayList<>();
         iterations = 0;
         long startTime = System.nanoTime();
         recursiveSearchWithForwardChecking(csp.getState());
         long endTime = System.nanoTime();
-        System.out.println("Czas wykonania: " + (endTime - startTime)/1_000_000_000.0 + "sekundy");
-        System.out.println("Liczba Iteracji: " + iterations);
-        return results;
+        double amountOfTimeInSeconds = (endTime - startTime)/1_000_000_000.0;
+        return new Result(
+                results,
+                amountOfTimeInSeconds,
+                iterations,
+                "FC " + variableSelection.getName() + " " + valueSelection.getName(),
+                csp.getFilename()
+        );
     }
+
 
     private int recursiveSearchWithForwardChecking(Variable[][] state) {
         if(isComplete(state)){
@@ -62,15 +68,19 @@ public class Backtracking {
         }
     }
 
-    public List<Variable[][]> search(CSP csp){
+    public Result search(CSP csp){
         results = new ArrayList<>();
         iterations = 0;
         long startTime = System.nanoTime();
         recursiveSearch(csp.getState());
         long endTime = System.nanoTime();
-        System.out.println("Czas wykonania: " + (endTime - startTime)/1_000_000_000.0 + "sekundy");
-        System.out.println("Liczba Iteracji: " + iterations);
-        return results;
+        double amountOfTimeInSeconds = (endTime - startTime)/1_000_000_000.0;
+        return new Result(
+                results,
+                amountOfTimeInSeconds,
+                iterations,
+                "BT " + variableSelection.getName() + " " + valueSelection.getName(),
+                csp.getFilename());
     }
 
     private int recursiveSearch(Variable[][] state) {
@@ -78,6 +88,8 @@ public class Backtracking {
             results.add(state);
             return COMPLETED;
         }
+
+//        printState(state);
 
         Variable variable = variableSelection.selectUnassigned(state);
 
@@ -93,10 +105,22 @@ public class Backtracking {
         return FAILURE;
     }
 
+    private void printState(Variable[][] state) {
+
+        System.out.println("--------------");
+        for(int i = 0; i < state.length; i++){
+            for(int j = 0; j < state.length; j++){
+                System.out.println(state[i][j] + "\t");
+            }
+            System.out.println("");
+        }
+
+    }
+
     private boolean isComplete(Variable[][] state) {
         for(Variable[] row : state){
             for(Variable variable : row){
-                if (!variable.isAssigned() || !variable.isConsistent(state)){
+                if (!variable.isAssigned()){
                     return false;
                 }
             }
