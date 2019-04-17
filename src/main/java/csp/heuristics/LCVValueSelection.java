@@ -40,13 +40,25 @@ public class LCVValueSelection implements ValueSelectionHeuristic {
 
     private int calculateDomainConstraintingRatio(Variable variable, Variable[][] state) {
         int domainConstraintingRatio = 0;
-        for(int i = 0; i < state.length; i++){
-            domainConstraintingRatio += state[variable.getRow()][i].calculateDomainChanges(state);
-        }
-        for(int i = 0; i < state.length; i++){
-            domainConstraintingRatio += state[i][variable.getColumn()].calculateDomainChanges(state);
-        }
+        domainConstraintingRatio += calculateRatioVertically(state[variable.getRow()], state);
+        domainConstraintingRatio += calculateRatioHorizontally(variable, state);
         return domainConstraintingRatio;
+    }
+
+    private int calculateRatioVertically(Variable[] variables, Variable[][] state) {
+        int result = 0;
+        for(int column = 0; column < state.length; column++){
+            result += variables[column].calculateDomainChanges(state);
+        }
+        return result;
+    }
+
+    private int calculateRatioHorizontally(Variable variable, Variable[][] state) {
+        int result = 0;
+        for(int row = 0; row < state.length; row++){
+            result += state[row][variable.getColumn()].calculateDomainChanges(state);
+        }
+        return result;
     }
 
     private Variable[][] copyStateWithNewVariable(Variable[][] state, Variable copied) {
