@@ -34,6 +34,23 @@ public class Variable {
         this.constraints = other.constraints; // no need to deep copy this list
     }
 
+    public boolean isValueConsistent(int value, Variable[][] state) {
+        int initialValue = this.value;
+        this.value = value;
+        boolean isConsistent = isConsistent(state);
+        this.value = initialValue;
+        return isConsistent;
+    }
+
+    public boolean isConsistent(Variable[][] state){
+        for(Predicate<Variable[][]> constraint : constraints){
+            if(!constraint.test(state)){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public int[] getDomainValues() {
         int[] values = new int[getDomainSize()];
         int index = 0;
@@ -43,6 +60,46 @@ public class Variable {
             }
         }
         return values;
+    }
+
+    public void setValueAndUpdateDomain(int value, int prevValue){
+        if(prevValue != 0){
+            domain[prevValue - 1] = true;
+        }
+        this.value = value;
+        domain[value - 1] = false;
+    }
+
+    public void updateDomain(Variable[][] state) {
+        for(int valueIndex = 0; valueIndex < domain.length; valueIndex++){
+            if(valueIndex != value - 1){
+                domain[valueIndex] = isValueConsistent(valueIndex + 1, state);
+            }
+        }
+    }
+
+    public int getDomainSize(){
+        int domainSize = 0;
+        for(boolean domainValue : domain){
+            if(domainValue){
+                domainSize++;
+            }
+        }
+        return domainSize;
+    }
+
+    public int calculateDomainChanges(Variable[][] state) {
+        int domainConstraintingRatio = 0;
+        for(int valueIndex = 0; valueIndex < domain.length; valueIndex++){
+            boolean isConsistent = isValueConsistent(valueIndex + 1, state);
+            if(domain[valueIndex] && !isConsistent){
+                domainConstraintingRatio++;
+            }
+            else if(!domain[valueIndex] && isConsistent){
+                domainConstraintingRatio--;
+            }
+        }
+        return domainConstraintingRatio;
     }
 
     public void addConstraint(Predicate<Variable[][]> constraint){
@@ -67,14 +124,6 @@ public class Variable {
 
     public void setValue(int value) {
         this.value = value;
-    }
-
-    public void setValueAndUpdateDomain(int value, int prevValue){
-        if(prevValue != 0){
-            domain[prevValue - 1] = true;
-        }
-        this.value = value;
-        domain[value - 1] = false;
     }
 
     public boolean[] getDomain() {
@@ -116,23 +165,6 @@ public class Variable {
         return Objects.hash(value);
     }
 
-    public boolean isValueConsistent(int value, Variable[][] state) {
-        int initialValue = this.value;
-        this.value = value;
-        boolean isConsistent = isConsistent(state);
-        this.value = initialValue;
-        return isConsistent;
-    }
-
-    public boolean isConsistent(Variable[][] state){
-        for(Predicate<Variable[][]> constraint : constraints){
-            if(!constraint.test(state)){
-                return false;
-            }
-        }
-        return true;//constraints.stream().allMatch(constraint -> constraint.test(state));
-    }
-
     public int getRow() {
         return row;
     }
@@ -152,37 +184,5 @@ public class Variable {
     public void setCoordinates(int row, int column) {
         this.row = row;
         this.column = column;
-    }
-
-    public void updateDomain(Variable[][] state) {
-        for(int valueIndex = 0; valueIndex < domain.length; valueIndex++){
-            if(valueIndex != value - 1){
-                domain[valueIndex] = isValueConsistent(valueIndex + 1, state);
-            }
-        }
-    }
-
-    public int getDomainSize(){
-        int domainSize = 0;
-        for(boolean domainValue : domain){
-            if(domainValue){
-                domainSize++;
-            }
-        }
-        return domainSize;
-    }
-
-    public int calculateDomainChanges(Variable[][] state) {
-        int domainConstraintingRatio = 0;
-        for(int valueIndex = 0; valueIndex < domain.length; valueIndex++){
-            boolean isConsistent = isValueConsistent(valueIndex + 1, state);
-            if(domain[valueIndex] && !isConsistent){
-                domainConstraintingRatio++;
-            }
-            else if(!domain[valueIndex] && isConsistent){
-                domainConstraintingRatio--;
-            }
-        }
-        return domainConstraintingRatio;
     }
 }
