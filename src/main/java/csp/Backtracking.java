@@ -89,8 +89,6 @@ public class Backtracking {
             return COMPLETED;
         }
 
-//        printState(state);
-
         Variable variable = variableSelection.selectUnassigned(state);
 
         for(int value : valueSelection.domainValues(variable, state)){
@@ -103,18 +101,6 @@ public class Backtracking {
             }
         }
         return FAILURE;
-    }
-
-    private void printState(Variable[][] state) {
-
-        System.out.println("--------------");
-        for(int i = 0; i < state.length; i++){
-            for(int j = 0; j < state.length; j++){
-                System.out.println(state[i][j] + "\t");
-            }
-            System.out.println("");
-        }
-
     }
 
     private boolean isComplete(Variable[][] state) {
