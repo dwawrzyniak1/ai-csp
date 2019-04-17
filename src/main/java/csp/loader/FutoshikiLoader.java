@@ -11,10 +11,14 @@ public class FutoshikiLoader extends BoardLoader {
     private static final int ASCII_TO_INT = 65;
 
     public void readInitialState(BufferedReader reader, Variable[][] state) throws IOException {
-        reader.readLine(); // OMIT TITLE STRING
+        omitTitleString(reader);
         readVariables(reader, state);
         readConstraints(reader, state);
         setDomains(state);
+    }
+
+    private String omitTitleString(BufferedReader reader) throws IOException {
+        return reader.readLine();
     }
 
     private void readVariables(BufferedReader reader, Variable[][] state) throws IOException {
@@ -32,7 +36,7 @@ public class FutoshikiLoader extends BoardLoader {
     }
 
     private void readConstraints(BufferedReader reader, Variable[][] state) throws IOException {
-        reader.readLine(); // OMIT TITLE STRING
+        omitTitleString(reader);
         String relations;
         while ((relations = reader.readLine()) != null && !"".equals(relations.trim())){
             int[] indexes = parseRelationsToIndexes(relations);
@@ -53,12 +57,15 @@ public class FutoshikiLoader extends BoardLoader {
 
     private int[] parseRelationsToIndexes(String relations) {
         String[] splittedRelations = relations.split(separator);
+
         char charRepresentationOfIndex = splittedRelations[0].charAt(0);
         int firstX = charRepresentationOfIndex - ASCII_TO_INT;
         int firstY = Character.getNumericValue(splittedRelations[0].charAt(1)) - 1;
+
         charRepresentationOfIndex = splittedRelations[1].charAt(0);
         int secondX = charRepresentationOfIndex - ASCII_TO_INT;
         int secondY = Character.getNumericValue(splittedRelations[1].charAt(1)) - 1;
+
         return new int[]{firstX, firstY, secondX, secondY};
     }
 

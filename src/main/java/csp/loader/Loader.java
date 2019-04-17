@@ -7,8 +7,9 @@ import java.io.*;
 
 public class Loader {
 
-    private BoardLoader boardLoader;
+    private static final int GAME_NAME_INDEX = 1;
 
+    private BoardLoader boardLoader;
 
     public CSP load(String filename){
         setBoardLoader(filename);
@@ -16,7 +17,6 @@ public class Loader {
             int boardSize = Integer.parseInt(reader.readLine());
             Variable[][] state = new Variable[boardSize][boardSize];
 
-            System.out.println(filename);
             boardLoader.readInitialState(reader, state);
 
             return new CSP(state, filename);
@@ -31,10 +31,10 @@ public class Loader {
 
     private void setBoardLoader(String filename) {
         String[] splitted = filename.split("_");
-        if("futo".equals(splitted[1])){
+        if("futo".equals(splitted[GAME_NAME_INDEX])){
             boardLoader = new FutoshikiLoader();
         }
-        else if("sky".equals(splitted[1])){
+        else if("sky".equals(splitted[GAME_NAME_INDEX])){
             boardLoader = new SkyscraperLoader();
         }
         else{

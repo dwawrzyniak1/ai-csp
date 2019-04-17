@@ -10,6 +10,7 @@ import java.util.function.Predicate;
 public class SkyscraperLoader extends BoardLoader{
 
     private static final int UNASSIGNED = 0;
+    private static final int DIRECTION_INDEX = 0;
 
     public void readInitialState(BufferedReader reader, Variable[][] state) throws IOException {
         initSkyscrapper(state);
@@ -18,11 +19,28 @@ public class SkyscraperLoader extends BoardLoader{
         setAllDifferentConstraints(state);
     }
 
+    private void initSkyscrapper(Variable[][] state) {
+        for(int i = 0; i < state.length; i++){
+            for(int j = 0; j < state[i].length; j++){
+                state[i][j] = new Variable(UNASSIGNED, arrayOfTrueBooleans(state.length));
+                state[i][j].setCoordinates(i, j);
+            }
+        }
+    }
+
+    private boolean[] arrayOfTrueBooleans(int length) {
+        boolean[] array = new boolean[length];
+        for(int i = 0; i < array.length; i++){
+            array[i] = true;
+        }
+        return array;
+    }
+
     private void setConstraints(BufferedReader reader, Variable[][] state) throws IOException {
         String constraintsRepresentation;
         while((constraintsRepresentation = reader.readLine()) != null){
             String[] splitted = constraintsRepresentation.split(separator);
-            String direction = splitted[0];
+            String direction = splitted[DIRECTION_INDEX];
             String[] constraints = Arrays.copyOfRange(splitted, 1, splitted.length);
             setDirectionalConstraints(state, direction, constraints);
         }
@@ -174,23 +192,5 @@ public class SkyscraperLoader extends BoardLoader{
         }
         return counter == constraintValue;
     }
-
-    private void initSkyscrapper(Variable[][] state) {
-        for(int i = 0; i < state.length; i++){
-            for(int j = 0; j < state[i].length; j++){
-                state[i][j] = new Variable(UNASSIGNED, arrayOfTrueBooleans(state.length));
-                state[i][j].setCoordinates(i, j);
-            }
-        }
-    }
-
-    private boolean[] arrayOfTrueBooleans(int length) {
-        boolean[] array = new boolean[length];
-        for(int i = 0; i < array.length; i++){
-            array[i] = true;
-        }
-        return array;
-    }
-
 
 }

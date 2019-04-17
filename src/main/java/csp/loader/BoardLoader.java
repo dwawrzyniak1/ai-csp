@@ -22,21 +22,6 @@ public abstract class BoardLoader {
         }
 
         return true;
-
-//        boolean[] wasPresent = new boolean[state.length];
-//        for(int i = 0; i < state.length; i++){
-//            int value = state[i][y].getValue();
-//            if(value != 0){
-//                if(!wasPresent[value - 1])
-//                    wasPresent[value - 1] = true;
-//                else{
-//                    return false;
-//                }
-//            }
-//        }
-//        long distinct = Arrays.stream(state[x]).filter(var -> var.getValue() != 0).distinct().count();
-//        long assigned = Arrays.stream(state[x]).filter(var -> var.getValue() != 0).count();
-//        return distinct == assigned;
     }
 
     public abstract void readInitialState(BufferedReader reader, Variable[][] state) throws IOException;
