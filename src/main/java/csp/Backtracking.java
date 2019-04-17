@@ -11,8 +11,7 @@ public class Backtracking {
     private static final int COMPLETED = 0;
     private static final int FAILURE = 1;
 
-    public static int iterations = 0;
-
+    private int iterations;
     private List<Variable[][]> results;
     private VariableSelectionHeuristic variableSelection;
     private ValueSelectionHeuristic valueSelection;
@@ -21,13 +20,15 @@ public class Backtracking {
         this.variableSelection = variableSelection;
         this.valueSelection = valueSelection;
         results = new ArrayList<>();
+        iterations = 0;
     }
 
     public Result searchWithForwardChecking(CSP csp){
-        results = new ArrayList<>();
-        iterations = 0;
+        resetResultsAndIterationsData();
         long startTime = System.nanoTime();
+
         recursiveSearchWithForwardChecking(csp.getState());
+
         long endTime = System.nanoTime();
         double amountOfTimeInSeconds = (endTime - startTime)/1_000_000_000.0;
         return new Result(
@@ -60,19 +61,28 @@ public class Backtracking {
     }
 
     private void updateDomains(Variable[][] state, Variable changed) {
-        for(int i = 0; i < state.length; i++){
-            state[changed.getRow()][i].updateDomain(state);
+        updateVertically(state, state[changed.getRow()]);
+        updateHorizontally(state, changed);
+    }
+
+    private void updateVertically(Variable[][] state, Variable[] variables) {
+        for(int column = 0; column < state.length; column++){
+            variables[column].updateDomain(state);
         }
-        for(int i = 0; i < state.length; i++){
-            state[i][changed.getColumn()].updateDomain(state);
+    }
+
+    private void updateHorizontally(Variable[][] state, Variable changed) {
+        for(int row = 0; row < state.length; row++){
+            state[row][changed.getColumn()].updateDomain(state);
         }
     }
 
     public Result search(CSP csp){
-        results = new ArrayList<>();
-        iterations = 0;
+        resetResultsAndIterationsData();
         long startTime = System.nanoTime();
+
         recursiveSearch(csp.getState());
+
         long endTime = System.nanoTime();
         double amountOfTimeInSeconds = (endTime - startTime)/1_000_000_000.0;
         return new Result(
@@ -81,6 +91,11 @@ public class Backtracking {
                 iterations,
                 "BT " + variableSelection.getName() + " " + valueSelection.getName(),
                 csp.getFilename());
+    }
+
+    private void resetResultsAndIterationsData() {
+        results = new ArrayList<>();
+        iterations = 0;
     }
 
     private int recursiveSearch(Variable[][] state) {
@@ -116,9 +131,9 @@ public class Backtracking {
 
     private Variable[][] copyStateWithNewVariable(Variable[][] state, Variable copied) {
         Variable[][] stateCopy = new Variable[state.length][state.length];
-        for(int i = 0; i < state.length; i++){
-            for(int j = 0; j < state[i].length; j++){
-                stateCopy[i][j] = new Variable(state[i][j]);
+        for(int row = 0; row < state.length; row++){
+            for(int column = 0; column < state[row].length; column++){
+                stateCopy[row][column] = new Variable(state[row][column]);
             }
         }
         stateCopy[copied.getRow()][copied.getColumn()] = copied;
